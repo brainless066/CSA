@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "csa",
+  "version": "${version}",
+  "name": "CSA",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/hyukjoon/CSA"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/csa/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.brainless.csa.client.CSAClient"
+    ],
+    "main": [
+      "net.brainless.csa.CSA",
+      "net.brainless.csa.TestItem",
+      "net.brainless.csa.TestBlock"
+    ]
+  },
+  "mixins": [
+    "csa.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
