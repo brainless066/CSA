@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key":{
+    "#": {
+      "item": "csa:custom_item"
+    }
+  },
+  "result": {
+    "item": "csa:custom_block"
+  }
+}
