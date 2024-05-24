@@ -18,6 +18,7 @@
     "main": [
       "net.brainless.csa.CSA",
       "net.brainless.csa.TestItem",
+      "net.brainless.csa.TestBlock"
     ]
   },
   "mixins": [
