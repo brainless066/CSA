@@ -1,12 +1,13 @@
 package net.brainless.csa.BlackJack;
 
 import net.brainless.csa.CSA;
+import net.fabricmc.api.ModInitializer;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Deck {
+public class Deck implements ModInitializer {
     private final List<Card> cards;
 
     public Deck() {
@@ -43,5 +44,10 @@ public class Deck {
     // Check if the deck is empty
     public boolean isEmpty() {
         return cards.isEmpty();
+    }
+
+    @Override
+    public void onInitialize() {
+        CSA.LOGGER.info("Deck initialized");
     }
 }
