@@ -13,12 +13,12 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.brainless.csa.client.CSAClient"
+      "net.brainless.csa.client.CSAClient",
+        "net.brainless.csa.CSA"
     ],
     "main": [
       "net.brainless.csa.CSA",
-      "net.brainless.csa.TestItem",
-      "net.brainless.csa.TestBlock"
+      "net.brainless.csa.BlackJack.Deck"
     ]
   },
   "mixins": [

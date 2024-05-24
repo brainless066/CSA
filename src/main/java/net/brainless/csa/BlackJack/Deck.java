@@ -25,7 +25,10 @@ public class Deck implements ModInitializer {
             }
         }
 
-        CSA.LOGGER.info("Deck initialized with " + cards.size() + " cards");
+        //shuffle the deck
+        shuffle();
+        CSA.LOGGER.info("Deck shuffled");
+
     }
 
     // Shuffle the deck
