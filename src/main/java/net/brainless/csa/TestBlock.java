@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
@@ -12,7 +13,10 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class TestBlock implements ModInitializer {
-    public static final Block CUSTOM_BLOCK = new Block(FabricBlockSettings.create().strength(4.0f));
+    //define CUSTOM_BLOCK that copies the property of stone block
+    public static final Block CUSTOM_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK));
+    //public static final Block CUSTOM_BLOCK = new Block(FabricBlockSettings.create().strength(4.0f));
+
     @Override
     public void onInitialize() {
         System.out.println("Hello from TestBlock!");
