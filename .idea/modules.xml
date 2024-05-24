@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CSA.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CSA.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CSA.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CSA.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.brainless.CSA.main.iml" filepath="$PROJECT_DIR$/.idea/modules/net.brainless.CSA.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.brainless.CSA.test.iml" filepath="$PROJECT_DIR$/.idea/modules/net.brainless.CSA.test.iml" />
     </modules>
   </component>
 </project>
