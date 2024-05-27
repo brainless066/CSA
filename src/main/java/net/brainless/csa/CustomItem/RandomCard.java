@@ -17,6 +17,8 @@ public class RandomCard extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        //********Done by copilot********
+
         //user randomly gets the item from the Cards array
         int randomIndex = (int) (Math.random() * PokemonCards.Cards.length);
         user.giveItemStack(PokemonCards.Cards[randomIndex].getDefaultStack());
