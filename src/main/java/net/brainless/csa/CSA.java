@@ -19,6 +19,7 @@ public class CSA implements ModInitializer, ClientModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("CSA mod initialized");
+        PokemonCards.registerModItems();
 
         blackJackGame = new BlackJackGame();
 
