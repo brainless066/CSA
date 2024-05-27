@@ -20,6 +20,11 @@ public class RandomCard extends Item {
         //user randomly gets the item from the Cards array
         int randomIndex = (int) (Math.random() * PokemonCards.Cards.length);
         user.giveItemStack(PokemonCards.Cards[randomIndex].getDefaultStack());
+
+        //remove one card pack from the user's inventory
+        ItemStack stack = user.getStackInHand(hand);
+        stack.decrement(1);
+
         return new TypedActionResult<>(ActionResult.SUCCESS, user.getStackInHand(hand));
 
     }
