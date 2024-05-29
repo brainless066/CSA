@@ -1,10 +1,14 @@
 package net.brainless.csa;
 
 import net.brainless.csa.BlackJack.BlackJackGame;
+import net.brainless.csa.items.ModEntities;
+import net.brainless.csa.items.TwistedFateCard;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class CSA implements ModInitializer, ClientModInitializer {
+    public static final String MOD_ID = "csa";
     public static final Logger LOGGER = LogManager.getLogger("blackjackmod");
     private static BlackJackGame blackJackGame;
 
@@ -20,6 +25,7 @@ public class CSA implements ModInitializer, ClientModInitializer {
     public void onInitialize() {
         LOGGER.info("CSA mod initialized");
         PokemonCards.registerModItems();
+        TwistedFateCard.registerModItems();
 
         blackJackGame = new BlackJackGame();
 
@@ -53,6 +59,8 @@ public class CSA implements ModInitializer, ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        EntityRendererRegistry.register(ModEntities.TWISTEDFATE_PROJECTILE, FlyingItemEntityRenderer::new);
+
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             CSA.LOGGER.info("HUD render callback triggered");
             if (blackJackGame != null) {

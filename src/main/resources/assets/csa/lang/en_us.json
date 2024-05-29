@@ -153,5 +153,8 @@
   "item.csa.card_148": "Dragonair",
   "item.csa.card_149": "Dragonite",
   "item.csa.card_150": "Mewtwo",
-  "item.csa.card_151": "Mew"
+  "item.csa.card_151": "Mew",
+
+  "item.csa.twistedfatecards": "Twistedfate Cards",
+  "item.csa.twistedfate_cards_item": "Twistedfate Cards Projectile"
 }
