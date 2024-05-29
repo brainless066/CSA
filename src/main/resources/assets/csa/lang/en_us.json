@@ -2,5 +2,6 @@
   "item.csa.custom_item": "Rem",
   "block.csa.custom_block": "Rem_Block",
   "item.csa.card_pack": "Pokemon Card Pack",
-  "item.csa.card_1": "Charizard"
+  "item.csa.charizard": "Charizard",
+  "item.csa.card_001": "Bulbasaur"
 }
