@@ -12,7 +12,7 @@ def add_padding(image_path, output_path, target_size):
 
 # Paths to your images
 
-for x in range(2, 152):
+for x in range(152, 202):
     num = x
     num = str(num).zfill(3)
 

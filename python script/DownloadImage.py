@@ -1,5 +1,5 @@
 # Download image from url
-for x in range(4, 152):
+for x in range(152, 202):
     num = x
 
     #make num 3 digits (adding 0)
