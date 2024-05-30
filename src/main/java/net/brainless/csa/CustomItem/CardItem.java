@@ -1,5 +1,6 @@
 package net.brainless.csa.CustomItem;
 
+import net.brainless.csa.items.TwistedfateCardItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,17 +31,4 @@ public class CardItem extends Item {
         }
         return new TypedActionResult<>(ActionResult.SUCCESS, player.getStackInHand(hand));
     }
-
-//    @Environment(EnvType.CLIENT)
-//    private void spawnFlameParticles(World world, PlayerEntity player) {
-//        for (int i = 0; i < 20; i++) {
-//            double x = player.getX() + (world.random.nextDouble() - 0.5) * 2.0;
-//            double y = player.getY() + world.random.nextDouble() * 2.0;
-//            double z = player.getZ() + (world.random.nextDouble() - 0.5) * 2.0;
-//
-//            world.addParticle(ParticleTypes.FLAME, x, y, z, 0.0, 0.0, 0.0);
-//        }
-//        // Play sound
-//        world.playSound(player, player.getBlockPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
-//    }
 }

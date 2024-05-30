@@ -31,7 +31,6 @@ public class RandomCard extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        //********Done by copilot********
         //if all the inventory space is full, do nothing and print message to user
 
 
