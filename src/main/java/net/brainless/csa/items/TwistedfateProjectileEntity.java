@@ -23,7 +23,10 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class TwistedfateProjectileEntity extends ThrownItemEntity {
 
@@ -48,6 +51,34 @@ public class TwistedfateProjectileEntity extends ThrownItemEntity {
         entity.damage(this.getDamageSources().thrown(this, this.getOwner()), damage);
         //https://chatgpt.com/share/cbad70da-d87d-428a-9e1f-7374eae192ac
         entity.setOnFireFor(5);
+        burnEntities(this.getWorld(),entityHitResult);
+    }
+    private void burnEntities(World world, EntityHitResult entityHitResult){
+        //get all entities around the player
+        //for each entity, if it is not the player, set it on fire
+        // Define the radius around the player to check for entities
+        Entity entityEne = entityHitResult.getEntity();
+        double radius = 5.0;
+
+        // Get the player's position
+        double playerX = entityEne.getX();
+        double playerY = entityEne.getY();
+        double playerZ = entityEne.getZ();
+
+        // Define the bounding box around the player to search for entities
+        Box searchBox = new Box(playerX - radius, playerY - radius, playerZ - radius,
+                playerX + radius, playerY + radius, playerZ + radius);
+
+        // Get all entities within the bounding box
+        List<Entity> entities = world.getOtherEntities(entityEne, searchBox, entity -> entity instanceof LivingEntity);
+
+        // Set each entity on fire for a certain number of ticks (20 ticks = 1 second)
+        int fireTicks = 100; // 5 seconds
+        for (Entity entity : entities) {
+            if (entity instanceof LivingEntity && entity != entityEne) {
+                entity.setOnFireFor(fireTicks);
+            }
+        }
     }
 
 
