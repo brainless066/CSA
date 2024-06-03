@@ -1,5 +1,4 @@
 package net.brainless.csa.BlackJack;
-//MinJun Oh
 
 public class Card {
     private final int number;

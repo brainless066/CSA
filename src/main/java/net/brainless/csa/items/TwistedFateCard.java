@@ -28,6 +28,5 @@ public class TwistedFateCard{
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(TwistedFateCard::addItemsToItemGroup);
 
     }
-    //Theo
 
 }

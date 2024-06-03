@@ -1,4 +1,4 @@
-//HyukJoon Kwon
+//HyukJoon
 package net.brainless.csa;
 
 import net.brainless.csa.BlackJack.Card;

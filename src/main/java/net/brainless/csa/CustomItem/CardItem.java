@@ -1,4 +1,4 @@
-//HyukJoon Kwon
+//HyukJoon
 package net.brainless.csa.CustomItem;
 
 import net.brainless.csa.items.TwistedfateCardItem;

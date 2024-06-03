@@ -1,4 +1,3 @@
-//MinJun Oh
 package net.brainless.csa.BlackJack;
 
 import java.util.ArrayList;
