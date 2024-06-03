@@ -92,6 +92,7 @@ public class TwistedfateProjectileEntity extends ThrownItemEntity {
 
     }
     @Environment(EnvType.CLIENT)
+
     private void spawnFlameParticles(World world, PlayerEntity player) {
         for (int i = 0; i < 20; i++) {
             double x = player.getX() + (world.random.nextDouble() - 0.5) * 2.0;
@@ -104,5 +105,5 @@ public class TwistedfateProjectileEntity extends ThrownItemEntity {
         world.playSound(player, player.getBlockPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
     }
 
-
+//Theo
 }

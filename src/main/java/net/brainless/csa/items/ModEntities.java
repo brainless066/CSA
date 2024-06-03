@@ -13,4 +13,7 @@ public class ModEntities {
     public static final EntityType<TwistedfateProjectileEntity> TWISTEDFATE_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(CSA.MOD_ID, "twistedfate_projectile"), FabricEntityTypeBuilder.<TwistedfateProjectileEntity>create(SpawnGroup.MISC, TwistedfateProjectileEntity::new)
                     .dimensions(EntityDimensions.fixed(0.25f,0.25f)).build());
+
+
 }
+//Theo

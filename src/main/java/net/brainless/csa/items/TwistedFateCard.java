@@ -14,6 +14,7 @@ public class TwistedFateCard{
     public static final Item TwistedfateCards  = registerItem("twistedfatecards", new Item(new FabricItemSettings()));
     public static final Item TwistedfateCardsItem  = registerItem("twistedfate_cards_item", new TwistedfateCardItem(new FabricItemSettings()));
 
+
     private static void addItemsToItemGroup(FabricItemGroupEntries entries){
         entries.add(TwistedfateCards);
         entries.add(TwistedfateCardsItem);
@@ -30,3 +31,4 @@ public class TwistedFateCard{
     }
 
 }
+//Theo
