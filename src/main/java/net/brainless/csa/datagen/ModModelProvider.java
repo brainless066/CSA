@@ -22,4 +22,5 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(TwistedFateCard.TwistedfateCardsItem, Models.GENERATED);
     }
+    //Theo
 }
