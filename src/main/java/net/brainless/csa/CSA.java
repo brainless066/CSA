@@ -46,13 +46,13 @@ public class CSA implements ModInitializer, ClientModInitializer {
     }
 
     private int playerHit(ServerCommandSource source) {
-        blackJackGame.playerHit();
+        blackJackGame.hit();
         source.sendMessage(Text.literal("Player hits!"));
         return 1;
     }
 
     private int playerStand(ServerCommandSource source) {
-        blackJackGame.playerStand();
+        blackJackGame.stand();
         source.sendMessage(Text.literal("Player stands!"));
         return 1;
     }
@@ -62,11 +62,11 @@ public class CSA implements ModInitializer, ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.TWISTEDFATE_PROJECTILE, FlyingItemEntityRenderer::new);
 
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
-            CSA.LOGGER.info("HUD render callback triggered");
+//            LOGGER.info("HUD render callback triggered");
             if (blackJackGame != null) {
                 blackJackGame.renderCards(drawContext, tickDelta);
             } else {
-                CSA.LOGGER.error("blackJackGame is null!");
+                LOGGER.error("blackJackGame is null!");
             }
         });
     }

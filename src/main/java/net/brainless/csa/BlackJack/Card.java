@@ -19,17 +19,47 @@ public class Card {
 
     public int getValue() {
         if (number > 10) {
-            return 10; // Face cards (Jack, Queen, King) are worth 10 points
+            return 10;
         } else if (number == 1) {
-            return 11; // Ace is worth 11 points
+            return 11;
         } else {
             return number;
         }
     }
 
+    public String getTexturePath() {
+        String rank = switch (number) {
+            case 1 -> "ace";
+            case 11 -> "jack";
+            case 12 -> "queen";
+            case 13 -> "king";
+            default -> String.valueOf(number);
+        };
+        return "CSA:textures/cards/" + rank + "_of_" + shape.toLowerCase() + ".png";
+    }
+
     @Override
     public String toString() {
-        String[] names = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-        return names[number - 1] + " of " + shape;
+        return number + " of " + shape;
+    }
+
+    public Object getRank() {
+        return switch (number) {
+            case 1 -> "Ace";
+            case 11 -> "Jack";
+            case 12 -> "Queen";
+            case 13 -> "King";
+            default -> number;
+        };
+    }
+
+    public String getName() {
+        return switch (number) {
+            case 1 -> "ace_of_" + shape.toLowerCase();
+            case 11 -> "jack_of_" + shape.toLowerCase();
+            case 12 -> "queen_of_" + shape.toLowerCase();
+            case 13 -> "king_of_" + shape.toLowerCase();
+            default -> number + "_of_" + shape.toLowerCase();
+        };
     }
 }

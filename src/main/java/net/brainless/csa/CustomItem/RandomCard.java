@@ -1,3 +1,4 @@
+//HyukJoon
 package net.brainless.csa.CustomItem;
 
 import net.brainless.csa.CSA;
@@ -33,7 +34,8 @@ public class RandomCard extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         //if all the inventory space is full, do nothing and print message to user
 
-
+        //This part is done by ChatGPT
+        //https://chatgpt.com/share/3457586a-72d5-4cf0-a108-2439872a5778
         if (user instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverPlayer = (ServerPlayerEntity) user;
             if (isInventoryFull(serverPlayer)) {
@@ -41,6 +43,8 @@ public class RandomCard extends Item {
                 return new TypedActionResult<>(ActionResult.PASS, user.getStackInHand(hand));
             }
         }
+
+
         //user randomly gets the item from the Cards array
         int randomIndex = (int) (Math.random() * (PokemonCards.Cards.length+1));
         if(randomIndex < PokemonCards.Cards.length) {

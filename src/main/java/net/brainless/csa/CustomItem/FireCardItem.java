@@ -1,3 +1,4 @@
+//HyukJoon Kwon
 package net.brainless.csa.CustomItem;
 
 import net.fabricmc.api.EnvType;
@@ -35,7 +36,8 @@ public class FireCardItem extends CardItem{
         return new TypedActionResult<>(ActionResult.SUCCESS, player.getStackInHand(hand));
     }
 
-    //Thıs functıon ıs wrıtten by copılot
+
+    //done by ChatGPT https://chatgpt.com/share/3457586a-72d5-4cf0-a108-2439872a5778
     @Environment(EnvType.CLIENT)
     private void spawnFlameParticles(World world, PlayerEntity player) {
         for (int i = 0; i < 20; i++) {
@@ -49,8 +51,8 @@ public class FireCardItem extends CardItem{
         world.playSound(player, player.getBlockPos(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0F, 1.0F);
     }
 
-    //Thıs functıon ıs wrıtten by copılot
     //function that give damage to entities around the player except for that player
+    //done by ChatGPT https://chatgpt.com/share/3457586a-72d5-4cf0-a108-2439872a5778
     private void burnEntities(World world, PlayerEntity player){
         //get all entities around the player
         //for each entity, if it is not the player, set it on fire
