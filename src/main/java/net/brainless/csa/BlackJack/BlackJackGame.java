@@ -43,8 +43,7 @@ public class BlackJackGame {
         if (isBust(playerHand)) {
             LOGGER.info("Player busts! Dealer wins.");
             gameOver = true;
-            resetGame();
-            return;
+            determineWinner();
         }
     }
 
@@ -53,12 +52,15 @@ public class BlackJackGame {
             playerHand.add(deck.dealCard());
             LOGGER.info("Player's hand: " + playerHand);
 
-            //send message to player that they lost
-            MinecraftClient client = MinecraftClient.getInstance();
-            client.player.sendMessage(Text.of("You lost!"), false);
-
-
-            playerTurn();
+            // Send message to player that they lost if they bust
+            if (isBust(playerHand)) {
+                MinecraftClient client = MinecraftClient.getInstance();
+                client.player.sendMessage(Text.of("You lost! Dealer wins."), false);
+                gameOver = true;
+                determineWinner();
+            } else {
+                playerTurn();
+            }
         }
     }
 
@@ -103,16 +105,34 @@ public class BlackJackGame {
         int playerValue = getHandValue(playerHand);
         int dealerValue = getHandValue(dealerHand);
 
+        MinecraftClient client = MinecraftClient.getInstance();
+        PlayerEntity playerEntity = client.player;
+
         if (isBust(playerHand)) {
             LOGGER.info("Player busts! Dealer wins.");
+            if (playerEntity != null) {
+                playerEntity.sendMessage(Text.of("You busted! Dealer wins."), false);
+            }
         } else if (isBust(dealerHand)) {
             LOGGER.info("Dealer busts! Player wins.");
+            if (playerEntity != null) {
+                playerEntity.sendMessage(Text.of("Dealer busted! You win."), false);
+            }
         } else if (playerValue > dealerValue) {
-            LOGGER.info("Player wins!");
+            LOGGER.info("Player wins with " + playerValue + " against dealer's " + dealerValue + ".");
+            if (playerEntity != null) {
+                playerEntity.sendMessage(Text.of("You win with " + playerValue + " against dealer's " + dealerValue + "."), false);
+            }
         } else if (playerValue < dealerValue) {
-            LOGGER.info("Dealer wins!");
+            LOGGER.info("Dealer wins with " + dealerValue + " against player's " + playerValue + ".");
+            if (playerEntity != null) {
+                playerEntity.sendMessage(Text.of("Dealer wins with " + dealerValue + " against your " + playerValue + "."), false);
+            }
         } else {
-            LOGGER.info("It's a tie!");
+            LOGGER.info("It's a tie with both player and dealer having " + playerValue + ".");
+            if (playerEntity != null) {
+                playerEntity.sendMessage(Text.of("It's a tie with both you and the dealer having " + playerValue + "."), false);
+            }
         }
     }
 
@@ -167,7 +187,6 @@ public class BlackJackGame {
 
     private void renderPlayerCards(DrawContext drawContext, MatrixStack matrixStack, int x, int y) {
         for (Card card : playerHand) {
-//            LOGGER.info("Rendering player card at (" + x + ", " + y + ")");
             renderCard(drawContext, matrixStack, card, x, y);
             x += 70; // Offset for next card
         }
@@ -175,7 +194,6 @@ public class BlackJackGame {
 
     private void renderDealerCards(DrawContext drawContext, MatrixStack matrixStack, int x, int y) {
         for (Card card : dealerHand) {
-//            LOGGER.info("Rendering dealer card at (" + x + ", " + y + ")");
             renderCard(drawContext, matrixStack, card, x, y);
             x += 70; // Offset for next card
         }
@@ -185,9 +203,6 @@ public class BlackJackGame {
         MinecraftClient client = MinecraftClient.getInstance();
         Identifier texture = new Identifier("blackjackmod", "textures/cards/" + getCardTextureName(card) + ".png");
         RenderSystem.setShaderTexture(0, texture);
-
-        // Log the texture being rendered for debugging
-//        LOGGER.info("Rendering card: " + texture + " at (" + x + ", " + y + ")");
 
         drawContext.drawTexture(texture, x, y, 0, 0, 64, 64, 64, 64);
     }
